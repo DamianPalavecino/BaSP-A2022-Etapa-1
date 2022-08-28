@@ -12,7 +12,7 @@
     </header>
     <aside>
       <h1>Menu</h1>
-      <input type="text" placeholder="Search"></input>
+      <input type="search" placeholder="Search"></input>
       <button type="button">Home</button>
       <button type="button">Login</button>
       <button type="button">SignUp</button>
@@ -54,11 +54,17 @@
       <section>
         <form>
           <label for="name">Name:</label>
-          <input type="text">
+          <input type="text" name="name">
           <label for="email">Email:</label>
-          <input type="text">
+          <input type="text" name="email">
+          <label for="roles">Please choose:</label>
+          <select name="roles">
+            <option value="hr">Human Resources</option>
+            <option value="management">Management</option>
+            <option value="dev">Developers</option>
+          </select>
           <label for="msg">Message:</label>
-          <input type="text">
+          <textarea name="msg" placeholder="Enter your message"></textarea>
           <input type="submit" value="Send">
         </form>
       </section>
