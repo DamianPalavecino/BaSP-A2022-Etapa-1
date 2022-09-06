@@ -77,4 +77,157 @@ footer img {
   padding: 20px;
 }
 
-/* Selectors */
+/* SELECTORS */
+
+/* Navbar with anchors and search */
+
+#header-title {
+  margin-top: 10px;
+  margin-left: 15px;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 47px;
+}
+
+#menu-title {
+  margin-left: 20px;
+  font-weight: 600;
+  font-size: 30px;
+  text-decoration: underline;
+  text-decoration-color: #aace9b;
+  text-underline-offset: 5px;
+}
+
+#search-icon {
+  color: grey;
+  position: relative;
+  top: 1px;
+  left: 30px;
+}
+
+#search-bar {
+  width: 210px;
+  height: 30px;
+  margin: 20px 0 0 0;
+  background: transparent;
+  border: 1px solid #ffffff;
+  border-radius: 5px;
+  text-indent: 30px;
+}
+
+.anchor {
+  display: block;
+  margin: 20px;
+  padding: 11px;
+  background-color: white;
+  border-radius: 5px;
+  font-size: 13px;
+  font-weight: 700;
+  text-align: center;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+/* Get in Touch */
+
+#contact {
+  margin-top: 30px;
+  margin-left: 20px;
+}
+
+#contact h3 {
+  font-weight: 600;
+  font-size: 15px;
+  text-decoration: underline;
+  text-decoration-color: #aace9b;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+}
+
+#contact p {
+  margin: 10px 10px 10px 0;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+#contact-list .contact-item {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.contact-hr {
+  /* Provisory */
+  width: 230px;
+  height: 0.5px;
+  margin: 8px 0 8px 0;
+  border: 1px ridge #aace9b;
+}
+
+#trackgenix-info {
+  height: 40%;
+}
+
+.description-container {
+  display: inline-block;
+  width: 40%;
+}
+
+#trackgenix-title {
+  font-weight: 700;
+  font-size: 20px;
+}
+
+#trackgenix-p {
+  text-justify: inter-word;
+  text-align: justify;
+}
+
+#learn-more-btn {
+  width: 100px;
+  height: 37px;
+  background: #ffffff;
+  border: 2px solid white;
+  border-radius: 5px;
+  font-weight: 600;
+  float: right;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+#trackgenix-img {
+  width: 90%;
+  border-radius: 5px;
+}
+
+/* Features section */
+
+.features-container {
+  display: inline-block;
+  width: 40%;
+  margin: 30px;
+}
+
+.features-container span {
+  display: inline;
+  width: 20%;
+}
+
+.features-img {
+  width: 15%;
+  float: left;
+}
+
+.features-title {
+  margin-left: 65px;
+  color: #000000;
+  font-weight: 800;
+  font-size: 25px;
+}
+
+.features-p {
+  width: 307px;
+  height: 107px;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 16px;
+  float: right;
+}
