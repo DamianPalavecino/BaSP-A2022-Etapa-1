@@ -157,32 +157,36 @@
           </p>
         </div>
       </section>
-      <section>
-        <h2>Why use trackgenix?</h2>
+      <section id="why-use-section">
+        <h2 id="why-use-title">Why use trackgenix?</h2>
         <ul>
           <li>
-            <h3>Productivity booster</h3>
-            <p>
+            <i class="fa-solid fa-play"></i>
+            <h3 class="why-use-subtitle">Productivity booster</h3>
+            <p class="why-use-p">
               The strict way of working and performing the jobs allow a good
               insertion in the labor world.
             </p>
           </li>
           <li>
-            <h3>Leadership and team management</h3>
-            <p>
+            <i class="fa-solid fa-play"></i>
+            <h3 class="why-use-subtitle">Work traceability</h3>
+            <p class="why-use-p">
+              These processes facilitate and improve the management of work.
+            </p>
+          </li>
+          <li>
+            <i class="fa-solid fa-play"></i>
+            <h3 class="why-use-subtitle">Leadership and team management</h3>
+            <p class="why-use-p">
               Team Management is essential to establish a good quality of life
               at work and ensure good Project Management.
             </p>
           </li>
           <li>
-            <h3>Work traceability</h3>
-            <p>
-              These processes facilitate and improve the management of work.
-            </p>
-          </li>
-          <li>
-            <h3>Decision making</h3>
-            <p>
+            <i class="fa-solid fa-play"></i>
+            <h3 class="why-use-subtitle">Decision making</h3>
+            <p class="why-use-p">
               Is the process by which a choice is made between alternatives or
               ways to solve different life situations.
             </p>
@@ -191,10 +195,14 @@
       </section>
       <section>
         <form>
-          <label for="name">Name</label>
-          <input type="text" name="name" />
-          <label for="email">Email</label>
-          <input type="text" name="email" />
+          <div>
+            <label for="name">Name</label>
+            <input type="text" name="name" />
+          </div>
+          <div>
+            <label for="email">Email</label>
+            <input type="text" name="email" />
+          </div>
           <label for="roles">Contact Area:</label>
           <select name="roles">
             <option selected disabled hidden>Options</option>
@@ -203,7 +211,12 @@
             <option value="dev">Systems</option>
           </select>
           <label for="msg">Message</label>
-          <textarea name="msg" placeholder="Enter your message"></textarea>
+          <textarea
+            name="msg"
+            placeholder="Enter your message"
+            rows="8"
+            cols="70"
+          ></textarea>
           <input type="submit" value="Send" />
         </form>
       </section>

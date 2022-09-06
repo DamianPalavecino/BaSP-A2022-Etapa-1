@@ -40,11 +40,37 @@ aside {
   height: 100%;
 }
 
+a {
+  /*Change this*/
+  text-decoration: none;
+  color: #41426f;
+}
+
 main {
   width: 75%;
   margin-top: 70px;
   background-color: white;
   float: right;
+}
+
+button {
+  background-color: white;
+}
+
+section {
+  width: 94%;
+}
+
+form {
+  display: block;
+  width: 535px;
+  height: 400px;
+  margin: auto;
+  padding: 10px;
+  background-color: #aace9b;
+  border-radius: 4%;
+  font-weight: 600;
+  font-size: 14px;
 }
 
 footer {
@@ -53,24 +79,17 @@ footer {
   float: right;
 }
 
-section {
-  width: 94%;
-}
-
-button {
-  background-color: white;
-}
-
-a {
-  text-decoration: none;
-  color: #41426f;
-}
-
 header,
 aside,
 footer {
   background-color: #41426f;
   color: white;
+}
+
+form div input,
+textarea,
+select {
+  background-color: #aace9b;
 }
 
 footer img {
@@ -229,5 +248,105 @@ footer img {
   font-weight: 700;
   font-size: 12px;
   line-height: 16px;
+  float: right;
+}
+
+/* Why Use Trackgenix */
+
+#why-use-title {
+  font-weight: 900;
+  font-size: 30px;
+  text-decoration: underline;
+  text-decoration-color: #41426f;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 10px;
+}
+
+#why-use-section ul li {
+  display: inline-block;
+  width: 430px;
+  margin-top: 20px;
+  margin-left: 30px;
+}
+
+#why-use-section ul li i {
+  float: left;
+}
+
+.fa-play {
+  padding-right: 10px;
+}
+
+.why-use-subtitle {
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.why-use-p {
+  width: 300px;
+  margin-left: 22px;
+  font-size: 15px;
+}
+
+/* Form */
+
+form div {
+  display: inline-block;
+  margin-top: 10px;
+}
+
+form label {
+  display: block;
+}
+
+form div label {
+  padding-bottom: 5px;
+}
+
+form div input[type="text"] {
+  display: inline-block;
+  width: 230px;
+  height: 30px;
+  border: 1px solid #373867;
+  border-radius: 4px;
+}
+
+form div:nth-child(2) {
+  margin-left: 48px;
+}
+
+form label[for="roles"] {
+  margin-top: 10px;
+  padding-bottom: 5px;
+}
+
+form select {
+  display: block;
+  width: 513px;
+  height: 30px;
+  border: 1px solid #373867;
+  border-radius: 4px;
+}
+
+form label[for="msg"] {
+  margin-top: 50px;
+  padding-bottom: 5px;
+}
+
+form textarea {
+  border: 1px solid #373867;
+  border-radius: 4px;
+  font-family: "Roboto", sans-serif;
+}
+
+form input[type="submit"] {
+  width: 230px;
+  height: 50px;
+  background: #ffffff;
+  border-color: white;
+  border-radius: 5px;
+  color: #41426f;
+  font-weight: 600;
+  box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.25);
   float: right;
 }
