@@ -4,7 +4,6 @@
 
 * {
   box-sizing: border-box;
-  font-family: "Roboto", sans-serif;
 }
 
 /* Debug CSS */
@@ -25,6 +24,7 @@ section {
 
 body {
   color: #41426f;
+  font-family: "Roboto", sans-serif;
   overflow-x: hidden;
 }
 
@@ -76,8 +76,9 @@ form {
 
 footer {
   width: 100%;
+  margin-top: 150px;
   text-align: center;
-  float: right;
+  float: left;
 }
 
 header,
@@ -85,12 +86,6 @@ aside,
 footer {
   background-color: #41426f;
   color: white;
-}
-
-form div input,
-textarea,
-select {
-  background-color: #aace9b;
 }
 
 footer img {
@@ -111,7 +106,7 @@ footer img {
 
 #header-title {
   margin-top: 10px;
-  margin-left: 15px;
+  margin-left: 35px;
   font-style: normal;
   font-weight: 700;
   font-size: 30px;
@@ -119,6 +114,7 @@ footer img {
 }
 
 #menu-title {
+  margin-top: 20px;
   margin-left: 20px;
   font-weight: 600;
   font-size: 30px;
@@ -135,7 +131,7 @@ footer img {
 }
 
 #search-bar {
-  width: 210px;
+  width: 212px;
   height: 30px;
   margin: 20px 0 0 0;
   background: transparent;
@@ -196,8 +192,8 @@ footer img {
 }
 
 .description-container {
-  display: inline-block;
   width: 40%;
+  float: left;
 }
 
 #trackgenix-title {
@@ -205,12 +201,17 @@ footer img {
   font-size: 20px;
 }
 
-#trackgenix-p {
+#trackgenix-subtitle {
+  margin: 10px 0 10px 0;
+}
+
+.trackgenix-p {
+  margin-bottom: 23px;
   text-justify: inter-word;
   text-align: justify;
 }
 
-#learn-more-btn {
+.description-container #learn-more-btn {
   width: 100px;
   height: 37px;
   background: #ffffff;
@@ -222,7 +223,9 @@ footer img {
 }
 
 #trackgenix-img {
-  width: 90%;
+  width: 530px;
+  height: 300px;
+  margin-left: 20px;
   border-radius: 5px;
 }
 
@@ -245,7 +248,7 @@ footer img {
 }
 
 .features-title {
-  margin-left: 65px;
+  margin-left: 73px;
   color: #000000;
   font-weight: 800;
   font-size: 25px;
@@ -301,7 +304,7 @@ footer img {
 
 form div {
   display: inline-block;
-  margin-top: 10px;
+  margin-top: 20px;
 }
 
 form label {
@@ -314,14 +317,15 @@ form div label {
 
 form div input[type="text"] {
   display: inline-block;
-  width: 230px;
+  width: 250px;
   height: 30px;
+  background-color: #aace9b;
   border: 1px solid #373867;
   border-radius: 4px;
 }
 
 form div:nth-child(2) {
-  margin-left: 48px;
+  margin-left: 8px;
 }
 
 form label[for="roles"] {
@@ -333,16 +337,22 @@ form select {
   display: block;
   width: 513px;
   height: 30px;
+  background-color: #aace9b;
   border: 1px solid #373867;
   border-radius: 4px;
 }
 
+form select option {
+  color: #373867;
+}
+
 form label[for="msg"] {
-  margin-top: 50px;
+  margin-top: 30px;
   padding-bottom: 5px;
 }
 
 form textarea {
+  background-color: #aace9b;
   border: 1px solid #373867;
   border-radius: 4px;
   font-family: "Roboto", sans-serif;
@@ -351,6 +361,7 @@ form textarea {
 form input[type="submit"] {
   width: 230px;
   height: 50px;
+  margin-top: 10px;
   background: #ffffff;
   border-color: white;
   border-radius: 5px;
@@ -372,8 +383,9 @@ form input[type="submit"] {
 }
 
 #about-us-title {
-  font-weight: 700;
-  font-size: 20px;
+  font-weight: 800;
+  font-size: 22px;
+  margin-bottom: 15px;
 }
 
 #about-us p {
@@ -424,4 +436,10 @@ form input[type="submit"] {
 
 .links-container:nth-child(3) {
   padding-left: 70px;
+}
+
+/* Footer */
+
+footer p {
+  padding-bottom: 20px;
 }
