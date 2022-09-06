@@ -21,3 +21,7 @@ During this week, I created a GitHub repository for the project. After that, I s
 ## Week 03
 
 In this week, I am going to add styles in the HTML file using CSS to imitate the landing made in the screenflow.
+
+## Authors
+
+- Damian Palavecino
