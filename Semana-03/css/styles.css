@@ -4,6 +4,7 @@
 
 * {
   box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
 }
 
 /* Debug CSS */
@@ -23,8 +24,8 @@ section {
 /* Elements selectors */
 
 body {
-  font-family: "Roboto", sans-serif;
   color: #41426f;
+  overflow-x: hidden;
 }
 
 header {
@@ -99,6 +100,14 @@ footer img {
 /* SELECTORS */
 
 /* Navbar with anchors and search */
+
+.line {
+  margin-top: 50px;
+  margin-bottom: 20px;
+  width: 94%;
+  height: 70%;
+  border-bottom: 3px solid #41426f;
+}
 
 #header-title {
   margin-top: 10px;
@@ -349,4 +358,70 @@ form input[type="submit"] {
   font-weight: 600;
   box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.25);
   float: right;
+}
+
+/* About Us section  */
+
+#about-us #left-block {
+  display: inline-block;
+  width: 30%;
+}
+
+#about-us #left-block div p {
+  float: left;
+}
+
+#about-us-title {
+  font-weight: 700;
+  font-size: 20px;
+}
+
+#about-us p {
+  width: 230px;
+}
+
+#about-us #right-block {
+  display: inline-block;
+  width: 60%;
+}
+
+#about-us img {
+  width: 100%;
+  height: 200px;
+}
+
+/* Links section  */
+
+#links {
+  margin: 70px;
+}
+
+.links-container {
+  display: inline-block;
+  width: 33%;
+  height: 100%;
+  text-align: left;
+}
+
+.border {
+  padding-left: 70px;
+  border-right: 2px solid #41426f;
+}
+
+.links-title {
+  font-weight: 700;
+  font-size: 30px;
+}
+
+.links-list {
+  font-weight: 700;
+  font-size: 12px;
+}
+
+.links-list li {
+  margin-top: 20px;
+}
+
+.links-container:nth-child(3) {
+  padding-left: 70px;
 }
