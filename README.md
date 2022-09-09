@@ -6,9 +6,15 @@ GigaTech Software Solutions SA provides software development services to other c
 
 - How to open:
 
-1. Access to the folder of the week you want to see.
+1. Clone this repository
 
-2. Open the file "index.html" on your browser.
+```bash
+git clone https://github.com/DamianPalavecino/BaSP-A2022-Etapa-1.git
+```
+
+2. Access to the main folder and then open the folder of the week that you want to see.
+
+3. Open the file '**index.html**' on your browser.
 
 ## Week 01
 
