@@ -1,0 +1,14 @@
+/* Import font */
+
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+/* Elements selectors */
+
+body {
+  color: #41426f;
+  font-family: "Roboto", sans-serif;
+}

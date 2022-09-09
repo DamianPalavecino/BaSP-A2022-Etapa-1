@@ -22,6 +22,10 @@ During this week, I created a GitHub repository for the project. After that, I s
 
 In this week, I am going to add styles in the HTML file using CSS to imitate the landing made in the screenflow.
 
+## Week 04
+
+During this week, I will modify the CSS files to make the design responsive by using Flexbox.
+
 ## Authors
 
 - Damian Palavecino
