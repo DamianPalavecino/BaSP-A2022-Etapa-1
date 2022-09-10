@@ -1,0 +1,98 @@
+.line {
+  width: 100%;
+  margin: 10px 0 10px 0;
+  border-bottom: 3px solid #41426f;
+}
+
+/* Trackgenix Info Section  */
+
+#trackgenix-title {
+  font-size: 30px;
+  font-weight: 800;
+}
+
+#trackgenix-subtitle {
+  font-size: 20px;
+}
+
+#trackgenix-img {
+  max-width: 100%;
+  border-radius: 5px;
+}
+
+#learn-more-btn {
+  width: 100px;
+  height: 37px;
+  background: #ffffff;
+  border: 2px solid white;
+  border-radius: 5px;
+  font-weight: 600;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+#learn-more-btn:hover {
+  background: #aace9b;
+  color: white;
+  border-color: #aace9b;
+}
+
+/* Features section  */
+
+.features-title {
+  color: #000000;
+  font-weight: 800;
+  font-size: 25px;
+}
+
+/* Why Use Trackgenix */
+
+#why-use-title {
+  font-size: 40px;
+  font-weight: 700;
+}
+
+.why-use-subtitle {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+/* Form */
+
+form {
+  background-color: #aace9b;
+}
+
+/* About Us */
+
+#about-us-title {
+  font-size: 30px;
+  font-weight: 800;
+}
+
+#about-us-img {
+  max-width: 30%;
+}
+
+/* Links section */
+
+#links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.links-title {
+  font-size: 30px;
+  font-weight: 800;
+}
+
+.links-list li a {
+  text-decoration: none;
+  color: #41426f;
+  font-weight: 500;
+}
+
+.border {
+  padding: 20px 0 20px 0;
+  border-bottom: 2px solid #41426f;
+}
