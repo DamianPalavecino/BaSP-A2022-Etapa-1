@@ -1,0 +1,14 @@
+footer {
+  height: 120px;
+  background-color: #41426f;
+  color: white;
+}
+
+.fa-brands {
+  font-size: 40px;
+  color: white;
+}
+
+footer p {
+  font-size: 12px;
+}

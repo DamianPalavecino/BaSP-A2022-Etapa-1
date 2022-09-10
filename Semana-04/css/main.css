@@ -16,7 +16,7 @@
 }
 
 #trackgenix-img {
-  max-width: 100%;
+  max-width: 95%;
   border-radius: 5px;
 }
 
@@ -38,6 +38,11 @@
 
 /* Features section  */
 
+.features-container div {
+  display: flex;
+  align-items: center;
+}
+
 .features-title {
   color: #000000;
   font-weight: 800;
@@ -51,6 +56,10 @@
   font-weight: 700;
 }
 
+#why-use-section ul li div {
+  display: inline-flex;
+}
+
 .why-use-subtitle {
   font-size: 16px;
   font-weight: 700;
@@ -60,6 +69,52 @@
 
 form {
   background-color: #aace9b;
+  display: flex;
+  flex-direction: column;
+}
+
+form input[type="text"] {
+  width: 250px;
+  height: 30px;
+  background-color: #aace9b;
+  border: 1px solid #373867;
+  border-radius: 4px;
+}
+
+form label {
+  font-weight: 600;
+}
+
+form select {
+  width: 80%;
+  height: 30px;
+  background-color: #aace9b;
+  border: 1px solid #373867;
+  border-radius: 4px;
+}
+
+form textarea {
+  background-color: #aace9b;
+  border: 1px solid #373867;
+  border-radius: 4px;
+  font-family: "Roboto", sans-serif;
+}
+
+#submit-btn {
+  width: 130px;
+  height: 40px;
+  background: #ffffff;
+  border-color: white;
+  border-radius: 5px;
+  color: #41426f;
+  font-weight: 600;
+  box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.25);
+}
+
+#submit-btn:hover {
+  background: #373867;
+  border-color: #373867;
+  color: white;
 }
 
 /* About Us */
@@ -70,7 +125,8 @@ form {
 }
 
 #about-us-img {
-  max-width: 30%;
+  width: 40%;
+  height: 100px;
 }
 
 /* Links section */
@@ -78,7 +134,13 @@ form {
 #links {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
+}
+
+.links-container {
+  margin: 40px;
+  border: 2px solid red;
 }
 
 .links-title {
@@ -87,9 +149,9 @@ form {
 }
 
 .links-list li a {
-  text-decoration: none;
   color: #41426f;
   font-weight: 500;
+  text-decoration: none;
 }
 
 .border {
