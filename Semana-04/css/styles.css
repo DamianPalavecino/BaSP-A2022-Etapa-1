@@ -9,6 +9,7 @@
 /* Elements selectors */
 
 body {
+  min-width: 350px;
   color: #41426f;
   font-family: "Roboto", sans-serif;
 }
