@@ -9,7 +9,88 @@
 /* Elements selectors */
 
 body {
-  min-width: 350px;
+  /* min-width: 350px; */
   color: #41426f;
   font-family: "Roboto", sans-serif;
+}
+
+body * {
+  /* border: 2px solid red; */
+}
+
+@media (min-width: 768px) {
+  #trackgenix-info {
+    flex-direction: row;
+  }
+
+  .description-container {
+    align-self: left;
+    width: 50%;
+  }
+
+  #trackgenix-img {
+    display: none;
+  }
+
+  #trackgenix-img-2 {
+    display: initial;
+    width: 50%;
+  }
+
+  #features {
+    flex-direction: row;
+  }
+
+  #features-left,
+  #features-right {
+    width: 50%;
+  }
+
+  #links {
+    flex-direction: row;
+  }
+
+  .links-container {
+    padding: 0 40px 0 0;
+  }
+
+  .bottom-line {
+    border-bottom: 0px;
+  }
+
+  .right-line {
+    border-right: 2px solid #41426f;
+  }
+}
+
+@media (min-width: 1024px) {
+  /* Body */
+
+  body {
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Header */
+
+  header {
+    justify-content: left;
+  }
+
+  #hamburger-menu {
+    display: none;
+  }
+
+  /* Aside */
+
+  aside {
+    display: initial;
+  }
+
+  /* Main */
+
+  main {
+    margin-left: 20%;
+    /* flex-grow: 1; */
+  }
 }
