@@ -7,7 +7,7 @@ main {
 .line {
   align-self: center;
   width: 90%;
-  margin: 10px 0 10px 0;
+  margin: 40px 0 30px 0;
   border-bottom: 3px solid #41426f;
 }
 
@@ -24,6 +24,8 @@ main {
 }
 
 .description-container {
+  display: flex;
+  flex-direction: column;
 }
 
 #trackgenix-title {
@@ -67,6 +69,16 @@ main {
 
 #learn-more-2-btn {
   display: none;
+  align-self: flex-end;
+  width: 100px;
+  height: 37px;
+  margin-top: 40px;
+  margin-right: 20px;
+  background: #ffffff;
+  border: 2px solid white;
+  border-radius: 5px;
+  font-weight: 600;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 #learn-more-btn:hover {
@@ -78,13 +90,11 @@ main {
 /* Features section  */
 
 #features {
+  align-self: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-#features-left,
-#features-right {
+  flex-wrap: wrap;
   width: 80%;
 }
 
@@ -93,9 +103,8 @@ main {
 }
 
 .features-container {
-  display: inline-block;
-  /* min-width: 400px; */
   padding: 20px 0 20px 0;
+  width: 80%;
 }
 
 .features-container div {
@@ -121,7 +130,7 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  flex-wrap: wrap;
 }
 
 #why-use-title {
@@ -159,12 +168,34 @@ main {
 form {
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
+  max-width: 480px;
+  height: 500px;
+  margin: 20px auto;
+  padding: 20px;
   background-color: #aace9b;
   border-radius: 10px;
 }
 
+#form-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 15px;
+  padding-right: 10px;
+}
+
+.input-container * {
+  padding-bottom: 10px;
+}
+
 form input[type="text"] {
-  height: 30px;
+  height: 37px;
   background-color: #aace9b;
   border: 1px solid #373867;
   border-radius: 4px;
@@ -175,7 +206,7 @@ form label {
 }
 
 form select {
-  height: 30px;
+  height: 37px;
   background-color: #aace9b;
   border: 1px solid #373867;
   border-radius: 4px;
@@ -209,7 +240,8 @@ form textarea {
 /* About Us */
 
 #about-us {
-  margin: 20px;
+  align-self: center;
+  width: 80%;
 }
 
 #about-us-title {
