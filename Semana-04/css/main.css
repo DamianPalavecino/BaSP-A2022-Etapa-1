@@ -4,6 +4,11 @@ main {
   padding-top: 140px;
 }
 
+a {
+  text-decoration: none;
+  color: #41426f;
+}
+
 .line {
   align-self: center;
   width: 90%;
@@ -17,10 +22,6 @@ main {
   display: flex;
   align-self: center;
   width: 90%;
-}
-
-#trackgenix-info * {
-  /* border: 2px solid blue; */
 }
 
 .description-container {
@@ -38,7 +39,9 @@ main {
   font-size: 20px;
 }
 
-#trackgenix-p {
+.trackgenix-p {
+  width: 85%;
+  margin-bottom: 20px;
 }
 
 #trackgenix-img {
@@ -60,6 +63,7 @@ main {
   align-self: flex-end;
   width: 100px;
   height: 37px;
+  margin: 0 10px 10px 0;
   background: #ffffff;
   border: 2px solid white;
   border-radius: 5px;
@@ -72,8 +76,7 @@ main {
   align-self: flex-end;
   width: 100px;
   height: 37px;
-  margin-top: 40px;
-  margin-right: 20px;
+  margin: 40px 20px 0 0;
   background: #ffffff;
   border: 2px solid white;
   border-radius: 5px;
@@ -83,15 +86,15 @@ main {
 
 #learn-more-btn:hover {
   background: #aace9b;
-  color: white;
   border-color: #aace9b;
+  color: white;
 }
 
 /* Features section  */
 
 #features {
-  align-self: center;
   display: flex;
+  align-self: center;
   flex-direction: column;
   align-items: center;
   flex-wrap: wrap;
@@ -104,7 +107,6 @@ main {
 
 .features-container {
   padding: 20px 0 20px 0;
-  width: 80%;
 }
 
 .features-container div {
@@ -130,25 +132,33 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
+  align-self: center;
+  width: 90%;
+}
+
+#why-use-lists {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
   flex-wrap: wrap;
 }
 
+.why-use-list {
+  flex-basis: 350px;
+}
+
+.why-use-list * {
+  margin: 10px;
+}
+
 #why-use-title {
+  margin-bottom: 20px;
   font-size: 40px;
   font-weight: 700;
   text-decoration: underline;
   text-decoration-color: #41426f;
   text-decoration-thickness: 5px;
   text-underline-offset: 10px;
-}
-
-#why-use-section ul li {
-  padding: 40px 0 20px 30px;
-}
-
-#why-use-section ul li div {
-  display: inline-flex;
-  margin-bottom: 10px;
 }
 
 .why-use-subtitle {
@@ -240,8 +250,15 @@ form textarea {
 /* About Us */
 
 #about-us {
+  display: flex;
   align-self: center;
+  flex-direction: column;
   width: 80%;
+}
+
+#about-us div {
+  display: flex;
+  gap: 15px;
 }
 
 #about-us-title {
@@ -257,9 +274,6 @@ form textarea {
 }
 
 #right-p {
-  display: inline-block;
-  width: 50%;
-  margin-left: 10px;
   vertical-align: top;
 }
 
@@ -276,14 +290,9 @@ form textarea {
   align-items: center;
 }
 
-#links * {
-  /* border: 2px solid red; */
-}
-
 .links-container {
   margin: 40px;
   padding: 20px 100px 80px 100px;
-  /* border: 2px solid red; */
 }
 
 .links-title {
