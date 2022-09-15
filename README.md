@@ -36,6 +36,10 @@ In this week, I am going to add styles in the HTML file using CSS to imitate the
 
 During this week, I will modify the CSS files to make the design responsive by using Flexbox.
 
+## Week 05
+
+In this week, I will work on some JavaScript exercises. Also, I will fix any mistakes in the HTML & CSS files of the past week.
+
 ## Authors
 
 - Damian Palavecino
