@@ -1,7 +1,6 @@
 header {
   display: flex;
   position: fixed;
-  flex-direction: row;
   align-items: center;
   justify-content: space-between;
   width: 100%;
@@ -19,5 +18,4 @@ header {
 #hamburger-menu {
   margin-right: 30px;
   font-size: 35px;
-  /* border: 2px solid red; */
 }

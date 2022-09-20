@@ -11,14 +11,12 @@
 body {
   color: #41426f;
   font-family: "Roboto", sans-serif;
+  display: flex;
+  flex-direction: column;
 }
 
 @media (min-width: 768px) {
   /* Trackgenix Info section  */
-
-  #trackgenix-info {
-    flex-direction: row;
-  }
 
   .description-container {
     align-self: left;
@@ -40,10 +38,6 @@ body {
 
   /* Features section  */
 
-  #features {
-    flex-direction: row;
-  }
-
   .features-container {
     width: 50%;
   }
@@ -57,7 +51,6 @@ body {
   #submit-btn {
     width: 230px;
     height: 50px;
-    margin-top: 10px;
     background: #ffffff;
     border-color: white;
     border-radius: 5px;
@@ -68,19 +61,12 @@ body {
 
   /* Links section  */
 
-  #links {
-    flex-direction: row;
-  }
-
-  .links-container {
-    padding: 0 40px 0 0;
-  }
-
   .bottom-line {
     border-bottom: 0px;
   }
 
   .right-line {
+    padding-right: 120px;
     border-right: 2px solid #41426f;
   }
 }
@@ -88,9 +74,14 @@ body {
 @media (min-width: 1024px) {
   /* Body */
 
-  body {
+  #flex-container {
     display: flex;
     flex-direction: column;
+  }
+
+  main {
+    align-self: flex-end;
+    width: 80%;
   }
 
   /* Header */
@@ -105,13 +96,6 @@ body {
     display: initial;
   }
 
-  /* Main */
-
-  main {
-    margin-left: 20%;
-    /* flex-grow: 1; */
-  }
-
   /* About Us */
 
   #about-us div {
@@ -122,10 +106,10 @@ body {
     width: 60%;
   }
 
-  /* Footer */
+  /* Footer  */
 
   footer {
     width: 80%;
-    margin-left: 20%;
+    align-self: flex-end;
   }
 }
