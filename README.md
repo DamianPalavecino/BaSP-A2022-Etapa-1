@@ -1,8 +1,8 @@
 # Trackgenix
 
-- Link
+- Github Pages Link
 
-https://damianpalavecino.github.io/BaSP-A2022-Etapa-1/Semana-04/index.html
+https://damianpalavecino.github.io/BaSP-A2022-Etapa-1/
 
 - Description
 

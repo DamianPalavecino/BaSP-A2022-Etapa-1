@@ -279,14 +279,13 @@ form textarea {
 
 #links {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
   flex-wrap: wrap;
   align-items: center;
   padding-bottom: 30px;
 }
 
 .links-container {
-  /* border: 2px solid red; */
   padding: 20px 60px 80px 60px;
 }
 

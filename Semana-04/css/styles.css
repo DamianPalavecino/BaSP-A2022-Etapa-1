@@ -61,6 +61,10 @@ body {
 
   /* Links section  */
 
+  .links-container {
+    max-width: 33%;
+  }
+
   .bottom-line {
     border-bottom: 0px;
   }
