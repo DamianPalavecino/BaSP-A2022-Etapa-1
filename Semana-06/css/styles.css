@@ -15,6 +15,11 @@ body {
   flex-direction: column;
 }
 
+a {
+  text-decoration: none;
+  color: #41426f;
+}
+
 @media (min-width: 768px) {
   /* Trackgenix Info section  */
 
@@ -79,6 +84,11 @@ body {
   /* Body */
 
   #flex-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .new-flex-container {
     display: flex;
     flex-direction: column;
   }
