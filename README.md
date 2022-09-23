@@ -40,6 +40,10 @@ During this week, I will modify the CSS files to make the design responsive by u
 
 In this week, I will work on some JavaScript exercises. Also, I will fix any mistakes in the HTML & CSS files of the past week.
 
+## Week 06
+
+During this week, I am going to add the login and sign up pages and style them. Also, I am going to add JavaScript to give functionality to the whole website.
+
 ## Authors
 
 - Damian Palavecino
