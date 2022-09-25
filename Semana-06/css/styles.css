@@ -88,11 +88,6 @@ a {
     flex-direction: column;
   }
 
-  .new-flex-container {
-    display: flex;
-    flex-direction: column;
-  }
-
   main {
     align-self: flex-end;
     width: 80%;
