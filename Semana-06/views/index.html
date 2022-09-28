@@ -16,7 +16,8 @@
     <link rel="stylesheet" href="../css/main.css" />
     <link rel="stylesheet" href="../css/footer.css" />
     <link rel="stylesheet" href="../css/styles.css" />
-    <script type="text/javascript" src="../javascript/landing.js"></script>
+    <script type="module" src="../javascript/landing.js"></script>
+    <script type="module" src="../javascript/common.js"></script>
     <script
       src="https://kit.fontawesome.com/436c93c59d.js"
       crossorigin="anonymous"
@@ -36,15 +37,15 @@
           <input id="search-bar" type="search" placeholder="Search" />
         </span>
         <nav>
-          <a class="anchor" href="#">
+          <a class="anchor" href="index.html">
             <i class="fa-solid fa-house"></i>
             Home
           </a>
-          <a class="anchor" href="#">
+          <a class="anchor" href="sign-in.html">
             <i class="fa-solid fa-right-to-bracket"></i>
             Login
           </a>
-          <a class="anchor" href="#">
+          <a class="anchor" href="sign-up.html">
             <i class="fa-solid fa-person"></i>
             SignUp
           </a>
@@ -231,23 +232,24 @@
           <form>
             <div id="form-container">
               <div class="input-container">
-                <label for="name">Name</label>
-                <input type="text" name="name" />
+                <label for="contact-name">Name</label>
+                <input id="contact-name" type="text" name="name" />
               </div>
               <div class="input-container">
-                <label for="email">Email</label>
-                <input type="text" name="email" />
+                <label for="contact-email">Email</label>
+                <input id="contact-email" type="text" name="email" />
               </div>
             </div>
             <label for="roles">Contact Area:</label>
-            <select name="roles">
+            <select id="roles" name="roles">
               <option selected disabled hidden>Options</option>
               <option value="hr">Human Resources</option>
               <option value="management">Business</option>
               <option value="dev">Systems</option>
             </select>
-            <label for="msg">Message</label>
+            <label for="msg-area">Message</label>
             <textarea
+              id="msg-area"
               name="msg"
               placeholder="Enter your message"
               rows="8"

@@ -304,3 +304,14 @@ form textarea {
 .bottom-line {
   border-bottom: 2px solid #41426f;
 }
+
+.error-input {
+  border-color: red !important;
+}
+
+.error-msg {
+  padding-top: 10px;
+  color: red;
+  font-size: 12px;
+  font-weight: 600;
+}
