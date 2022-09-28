@@ -1,5 +1,5 @@
 export function createErrorMessage(input, message) {
-  if (input.nextElementSibling.tagName != "P") {
+  if (input.nextSibling.tagName != "P") {
     var errorMessage = document.createElement("p");
     errorMessage.innerText = message;
     errorMessage.classList.add("error-msg");
@@ -37,7 +37,7 @@ export function hasSpecialCharacters(str) {
   return hasSpecialCharacters;
 }
 
-function onlyLetters(str) {
+export function onlyLetters(str) {
   var hasLetters = true;
   for (var i = 0; i < str.length; i++) {
     if (!isLetter(str[i])) {
@@ -49,7 +49,7 @@ function onlyLetters(str) {
   return hasLetters;
 }
 
-function onlyNumbers(str) {
+export function onlyNumbers(str) {
   var hasNumbers = true;
   for (var i = 0; i < str.length; i++) {
     if (!isNumber(str[i])) {
@@ -59,4 +59,40 @@ function onlyNumbers(str) {
   }
 
   return hasNumbers;
+}
+
+export function letterCount(str) {
+  var count = 0;
+  for (var i = 0; i < str.length; i++) {
+    if (isLetter(str[i])) {
+      count += 1;
+    }
+  }
+
+  return count;
+}
+
+export function isAlphanumericText(str) {
+  var isAlphanumeric = true;
+  for (var i = 0; i < str.length; i++) {
+    if (!isLetter(str[i]) && isNaN(str[i]) && str[i] != " ") {
+      isAlphanumeric = false;
+      break;
+    }
+  }
+  return isAlphanumeric;
+}
+
+export function hasLettersAndNumbers(str) {
+  var hasNumber = false;
+  var hasLetter = false;
+  for (var i = 0; i < str.length; i++) {
+    if (isLetter(str[i])) {
+      hasLetter = true;
+    }
+    if (isNumber(str[i])) {
+      hasNumber = true;
+    }
+  }
+  return hasNumber && hasLetter;
 }

@@ -10,7 +10,8 @@
     <link rel="stylesheet" href="../css/sign-up.css" />
     <link rel="stylesheet" href="../css/footer.css" />
     <link rel="stylesheet" href="../css/styles.css" />
-    <script type="text/javascript" src="../javascript/sign-up.js"></script>
+    <script type="module" src="../javascript/sign-up.js"></script>
+    <script type="module" src="../javascript/common.js"></script>
     <script
       src="https://kit.fontawesome.com/436c93c59d.js"
       crossorigin="anonymous"
@@ -97,7 +98,7 @@
           </div>
           <div>
             <label>Email</label>
-            <input id="birthdate" type="text" />
+            <input id="email" type="text" />
           </div>
           <div>
             <label>Adress</label>
@@ -123,11 +124,16 @@
             <label>Phone Number</label>
             <input id="phone" type="text" />
           </div>
+          <span>
+            <button id="back-btn" class="form-btn" type="button">Back</button>
+            <input
+              id="create-btn"
+              class="form-btn"
+              type="submit"
+              value="Create"
+            />
+          </span>
         </form>
-        <span>
-          <button id="back-btn" class="form-btn" type="button">Back</button>
-          <button id="login-btn" class="form-btn" type="button">Login</button>
-        </span>
       </main>
     </div>
     <footer>
