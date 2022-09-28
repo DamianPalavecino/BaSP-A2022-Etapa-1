@@ -136,7 +136,7 @@ window.onload = function () {
       signUpDetails.password = "Invalid Password";
       createErrorMessage(passwordInput, "Invalid Password");
     } else {
-      signUpDetails.password1 = passwordInput.value;
+      signUpDetails.password = passwordInput.value;
     }
   };
 
