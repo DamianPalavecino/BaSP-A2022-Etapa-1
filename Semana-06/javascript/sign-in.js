@@ -1,5 +1,6 @@
 import {
   hasSpecialCharacters,
+  hasLettersAndNumbers,
   createErrorMessage,
   deleteErrorMessage,
 } from "./common.js";
@@ -33,7 +34,10 @@ window.onload = function () {
   };
 
   passwordInput.onblur = function () {
-    if (hasSpecialCharacters(passwordInput.value)) {
+    if (
+      hasSpecialCharacters(passwordInput.value) ||
+      !hasLettersAndNumbers(passwordInput.value)
+    ) {
       passwordInput.classList.add("error-input");
       createErrorMessage(passwordInput, "Invalid password");
       signInDetails.password = "Invalid password";
