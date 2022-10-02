@@ -1,0 +1,317 @@
+main {
+  display: flex;
+  flex-direction: column;
+  padding-top: 140px;
+}
+
+.line {
+  align-self: center;
+  width: 90%;
+  margin: 40px 0 30px 0;
+  border-bottom: 3px solid #41426f;
+}
+
+/* Trackgenix Info Section  */
+
+#trackgenix-info {
+  display: flex;
+  align-self: center;
+  width: 90%;
+}
+
+.description-container {
+  display: flex;
+  flex-direction: column;
+}
+
+#trackgenix-title {
+  font-size: 30px;
+  font-weight: 800;
+}
+
+#trackgenix-subtitle {
+  padding: 15px 0 15px 0;
+  font-size: 20px;
+}
+
+.trackgenix-p {
+  width: 85%;
+  margin-bottom: 20px;
+}
+
+#trackgenix-img {
+  display: flex;
+  flex-direction: row-reverse;
+  height: 180px;
+  background-image: url("../assets/img/trackgenix-img.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#trackgenix-img-2 {
+  display: none;
+  width: 430px;
+}
+
+#learn-more-btn {
+  align-self: flex-end;
+  width: 100px;
+  height: 37px;
+  margin: 0 10px 10px 0;
+  background: #ffffff;
+  border: 2px solid white;
+  border-radius: 5px;
+  font-weight: 600;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+#learn-more-2-btn {
+  display: none;
+  align-self: flex-end;
+  width: 100px;
+  height: 37px;
+  margin: 40px 20px 0 0;
+  background: #ffffff;
+  border: 2px solid white;
+  border-radius: 5px;
+  font-weight: 600;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+#learn-more-btn:hover {
+  background: #aace9b;
+  border-color: #aace9b;
+  color: white;
+}
+
+/* Features section  */
+
+#features {
+  display: flex;
+  align-self: center;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 80%;
+}
+
+.features-p {
+  font-weight: 600;
+}
+
+.features-container {
+  padding: 20px 0 20px 0;
+}
+
+.features-container div {
+  display: inline-block;
+  width: 72%;
+  margin: 15px 0 0 5px;
+}
+
+.features-title {
+  padding-bottom: 10px;
+  color: #000000;
+  font-weight: 800;
+  font-size: 25px;
+}
+
+.features-img {
+  vertical-align: top;
+}
+
+/* Why Use Trackgenix */
+
+#why-use-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-self: center;
+  width: 90%;
+}
+
+#why-use-lists {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.why-use-list {
+  flex-basis: 350px;
+}
+
+.why-use-list * {
+  margin: 10px;
+}
+
+#why-use-title {
+  margin-bottom: 20px;
+  font-size: 40px;
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-color: #41426f;
+  text-decoration-thickness: 5px;
+  text-underline-offset: 10px;
+}
+
+.why-use-subtitle {
+  margin-left: 5px;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+/* Form */
+
+#form-section {
+  align-self: center;
+  padding: 5px;
+  width: 80%;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  max-width: 480px;
+  height: 500px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #aace9b;
+  border-radius: 10px;
+}
+
+#form-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 15px;
+  padding-right: 10px;
+}
+
+.input-container * {
+  padding-bottom: 10px;
+}
+
+form input[type="text"] {
+  height: 37px;
+  background-color: #aace9b;
+  border: 1px solid #373867;
+  border-radius: 4px;
+}
+
+form label {
+  font-weight: 600;
+}
+
+form select {
+  height: 37px;
+  background-color: #aace9b;
+  border: 1px solid #373867;
+  border-radius: 4px;
+}
+
+form textarea {
+  background-color: #aace9b;
+  border: 1px solid #373867;
+  border-radius: 4px;
+  font-family: "Roboto", sans-serif;
+}
+
+#submit-btn {
+  align-self: flex-end;
+  width: 130px;
+  height: 40px;
+  background: #ffffff;
+  border-color: white;
+  border-radius: 5px;
+  color: #41426f;
+  font-weight: 600;
+  box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.25);
+}
+
+#submit-btn:hover {
+  background: #373867;
+  border-color: #373867;
+  color: white;
+}
+
+/* About Us */
+
+#about-us {
+  display: flex;
+  align-self: center;
+  flex-direction: column;
+  width: 80%;
+}
+
+#about-us div {
+  display: flex;
+  gap: 15px;
+}
+
+#about-us-title {
+  margin-bottom: 20px;
+  font-size: 25px;
+  font-weight: 800;
+}
+
+#about-us p {
+  font-size: 16px;
+}
+
+#about-us-img {
+  width: 40%;
+  height: 200px;
+  border-radius: 10px;
+}
+
+/* Links section */
+
+#links {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  align-items: center;
+  padding-bottom: 30px;
+}
+
+.links-container {
+  margin: 0 40px 0 40px;
+}
+
+.links-title {
+  font-size: 30px;
+  font-weight: 800;
+}
+
+.links-list li {
+  width: 133px;
+  padding-top: 25px;
+}
+
+.links-list li a {
+  display: inline-block;
+  color: #41426f;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.bottom-line {
+  border-bottom: 2px solid #41426f;
+}
+
+.error-input {
+  border-color: red !important;
+}
+
+.error-msg {
+  padding-top: 10px;
+  color: red;
+  font-size: 12px;
+  font-weight: 600;
+}

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/reset.css" />
+    <link rel="stylesheet" href="../css/header.css" />
+    <link rel="stylesheet" href="../css/sidebar.css" />
+    <link rel="stylesheet" href="../css/sign-in.css" />
+    <link rel="stylesheet" href="../css/footer.css" />
+    <link rel="stylesheet" href="../css/styles.css" />
+    <script type="module" src="../javascript/sign-in.js"></script>
+    <script type="module" src="../javascript/common.js"></script>
+    <script
+      src="https://kit.fontawesome.com/436c93c59d.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Trackgenix - Login</title>
+  </head>
+  <body>
+    <header>
+      <h2 id="header-title">Trackgenix</h2>
+      <i id="hamburger-menu" class="fa-solid fa-bars"></i>
+    </header>
+    <div id="flex-container">
+      <aside>
+        <h2 id="menu-title">Menu</h2>
+        <span>
+          <i id="search-icon" class="fa-solid fa-magnifying-glass"></i>
+          <input id="search-bar" type="search" placeholder="Search" />
+        </span>
+        <nav>
+          <a class="anchor" href="index.html">
+            <i class="fa-solid fa-house"></i>
+            Home
+          </a>
+          <a class="anchor" href="sign-in.html">
+            <i class="fa-solid fa-right-to-bracket"></i>
+            Login
+          </a>
+          <a class="anchor" href="sign-up.html">
+            <i class="fa-solid fa-person"></i>
+            SignUp
+          </a>
+        </nav>
+        <section id="contact">
+          <h3>Get in touch</h3>
+          <p>
+            Gigatech is always looking for talented software developers to join
+            our team. If you are interested in working with us, please get in
+            touch. We would be happy to discuss your experience and skills.
+          </p>
+          <ul id="contact-list">
+            <li class="contact-item">
+              <p>
+                <i class="fa-regular fa-envelope"></i>
+                trackgenix@gigatech.com
+              </p>
+              <div class="contact-hr"></div>
+            </li>
+            <li class="contact-item">
+              <p>
+                <i class="fa-solid fa-phone"></i>
+                415-200-0042
+              </p>
+              <div class="contact-hr"></div>
+            </li>
+            <li class="contact-item">
+              <p>
+                <i class="fa-sharp fa-solid fa-house-chimney"></i>
+                621 Taylor St. , San Francisco, CA
+              </p>
+            </li>
+          </ul>
+        </section>
+      </aside>
+      <main>
+        <img
+          id="form-img"
+          src="../assets/icons/RR-logo.svg"
+          alt="Radium Rocket Logo"
+        />
+        <div id="login-container">
+          <h2 class="form-title">Log in</h2>
+          <form>
+            <input type="text" id="email" name="email" placeholder="Email" />
+            <input
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Password"
+            />
+            <span>
+              <input type="checkbox" />
+              <label>Remember me</label>
+            </span>
+            <a href="#">Forgot your password?</a>
+          </form>
+        </div>
+        <span>
+          <button id="back-btn" class="form-btn" type="button">Back</button>
+          <input id="login-btn" class="form-btn" type="submit" value="Login" />
+        </span>
+      </main>
+    </div>
+    <footer id="">
+      <div>
+        <a href="https://facebook.com/">
+          <i class="fa-brands fa-facebook"></i>
+        </a>
+        <a href="https://www.instagram.com/">
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+        <a href="https://twitter.com/">
+          <i class="fa-brands fa-twitter"></i>
+        </a>
+      </div>
+      <p>©GigaTech Software Solutions SA. INC. ALL RIGHTS RESERVED.</p>
+    </footer>
+  </body>
+</html>

@@ -42,7 +42,12 @@ In this week, I will work on some JavaScript exercises. Also, I will fix any mis
 
 ## Week 06
 
-During this week, I am going to add the login and sign up pages and style them. Also, I am going to add JavaScript to give functionality to the whole website.
+During this week, I am going to add the login and sign up pages and style them. Also, I am going to add JavaScript to give functionality to the login, sign up and contact pages.
+
+## Week 07
+
+In this week, I am going to continue working on the login and sign up pages with the addition that they are going to be
+connected to data stored in a web server. I am going to use HTTP requests to access this data with JavaScript.
 
 ## Authors
 

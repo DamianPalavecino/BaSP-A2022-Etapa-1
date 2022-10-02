@@ -1,0 +1,95 @@
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  padding-top: 140px;
+  margin-bottom: 40px;
+}
+
+#form-img {
+  width: 15%;
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 218px;
+  height: 30px;
+  background: rgba(0, 0, 0, 0.04);
+  border-radius: 5px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+form span,
+form a {
+  align-self: center;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+form div {
+  display: inline-block;
+}
+
+#login-container {
+  padding: 20px;
+  background: #ffffff;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 30px;
+}
+
+.form-title {
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: 800;
+  font-size: 24px;
+}
+
+#back-btn {
+  width: 110px;
+  height: 54px;
+  background: #49a37b;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+}
+
+#back-btn:hover {
+  background: white;
+  color: #41426f;
+}
+
+#login-btn {
+  width: 110px;
+  height: 54px;
+  background: #41426f;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+}
+
+#login-btn:hover {
+  background: white;
+  color: #41426f;
+}
+
+.form-btn {
+  display: inline-block;
+  color: white;
+  font-weight: 600;
+  border-style: none;
+  margin-top: 35px;
+}
+
+.error-input {
+  border-color: red !important;
+}
+
+.error-msg {
+  color: red;
+  font-size: 12px;
+  font-weight: 600;
+}

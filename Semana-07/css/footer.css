@@ -1,0 +1,24 @@
+footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 120px;
+  background-color: #41426f;
+  color: white;
+}
+
+footer div {
+  display: flex;
+}
+
+.fa-brands {
+  font-size: 40px;
+  color: white;
+  padding: 10px 30px 30px 40px;
+}
+
+footer p {
+  text-align: center;
+  font-size: 12px;
+}
