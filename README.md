@@ -2,7 +2,7 @@
 
 - Github Pages Link
 
-https://damianpalavecino.github.io/BaSP-A2022-Etapa-1/
+https://damianpalavecino.github.io/BaSP-A2022-Etapa-1/Semana-07/views/index.html
 
 - Description
 
@@ -46,8 +46,7 @@ During this week, I am going to add the login and sign up pages and style them. 
 
 ## Week 07
 
-In this week, I am going to continue working on the login and sign up pages with the addition that they are going to be
-connected to data stored in a web server. I am going to use HTTP requests to access this data with JavaScript.
+In this week, I am going to continue working on the login and sign up pages with the addition that now they are going to be connected to data stored in a web server.
 
 ## Authors
 
