@@ -1,5 +1,6 @@
 export function createErrorMessage(input, message) {
   if (input.nextSibling.tagName != "P") {
+    input.classList.add("error-input");
     var errorMessage = document.createElement("p");
     errorMessage.innerText = message;
     errorMessage.classList.add("error-msg");
@@ -8,21 +9,25 @@ export function createErrorMessage(input, message) {
 }
 
 export function deleteErrorMessage(input) {
-  if (input.nextElementSibling.tagName == "P") {
+  if (
+    input.nextElementSibling.tagName == "P" &&
+    input.classList.contains("error-input")
+  ) {
+    input.classList.remove("error-input");
     input.nextElementSibling.remove();
   }
 }
 
-function isLetter(c) {
-  return c.toLowerCase() != c.toUpperCase();
+function isLetter(character) {
+  return character.toLowerCase() != character.toUpperCase();
 }
 
-function isNumber(n) {
-  return !isNaN(n) && n !== " ";
+function isNumber(number) {
+  return !isNaN(number) && number !== " ";
 }
 
-function isSpecialCharacter(c) {
-  return !isLetter(c) && !isNumber(c);
+function isSpecialCharacter(character) {
+  return !isLetter(character) && !isNumber(character);
 }
 
 export function hasSpecialCharacters(str) {
@@ -33,7 +38,6 @@ export function hasSpecialCharacters(str) {
       break;
     }
   }
-
   return hasSpecialCharacters;
 }
 
@@ -45,7 +49,6 @@ export function onlyLetters(str) {
       break;
     }
   }
-
   return hasLetters;
 }
 
@@ -57,7 +60,6 @@ export function onlyNumbers(str) {
       break;
     }
   }
-
   return hasNumbers;
 }
 
@@ -68,7 +70,6 @@ export function letterCount(str) {
       count += 1;
     }
   }
-
   return count;
 }
 

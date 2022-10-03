@@ -18,8 +18,7 @@ window.onload = function () {
 
   emailInput.onblur = function () {
     if (!emailExpression.test(emailInput.value)) {
-      emailInput.classList.add("error-input");
-      createErrorMessage(emailInput, "Invalid email");
+      createErrorMessage(emailInput, "Email is not valid.");
       signInDetails.email = "Invalid email";
     } else {
       signInDetails.email = emailInput.value;
@@ -28,7 +27,6 @@ window.onload = function () {
 
   emailInput.onfocus = function () {
     if (emailInput.classList.contains("error-input")) {
-      emailInput.classList.remove("error-input");
       deleteErrorMessage(emailInput);
     }
   };
@@ -38,8 +36,10 @@ window.onload = function () {
       hasSpecialCharacters(passwordInput.value) ||
       !hasLettersAndNumbers(passwordInput.value)
     ) {
-      passwordInput.classList.add("error-input");
-      createErrorMessage(passwordInput, "Invalid password");
+      createErrorMessage(
+        passwordInput,
+        "The password can only contain numbers and letters."
+      );
       signInDetails.password = "Invalid password";
     } else {
       signInDetails.password = passwordInput.value;
@@ -48,13 +48,26 @@ window.onload = function () {
 
   passwordInput.onfocus = function () {
     if (passwordInput.classList.contains("error-input")) {
-      passwordInput.classList.remove("error-input");
       deleteErrorMessage(passwordInput);
     }
   };
 
   loginButton.onclick = function (e) {
     e.preventDefault();
-    alert(Object.values(signInDetails));
+    if (
+      Object.values(signInDetails).some(function (elem) {
+        return elem.includes("Required") || elem.includes("Invalid");
+      })
+    ) {
+      alert(`Error:
+      Email: ${signInDetails.email}
+      Password: ${signInDetails.password}
+            `);
+    } else {
+      alert(`Log in succesful:
+      Email: ${signInDetails.email}
+      Password: ${signInDetails.password}
+            `);
+    }
   };
 };

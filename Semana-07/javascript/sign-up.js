@@ -23,6 +23,7 @@ window.onload = function () {
   var adressInput = document.getElementById("adress");
   var cityInput = document.getElementById("city");
   var createButton = document.getElementById("create-btn");
+  var formInputs = document.querySelectorAll("form input");
 
   var signUpDetails = {
     fname: "Required",
@@ -39,148 +40,119 @@ window.onload = function () {
   };
 
   firstName.onblur = function () {
-    if (!onlyLetters(firstName.value) || firstName.value.length <= 3) {
-      firstName.classList.add("error-input");
+    if (!onlyLetters(firstName.value)) {
       signUpDetails.fname = "Invalid first name";
-      createErrorMessage(firstName, "Invalid first name");
+      createErrorMessage(firstName, "Name must have only letters.");
+    } else if (firstName.value.length <= 3) {
+      signUpDetails.fname = "Invalid first name";
+      createErrorMessage(firstName, "Name must have more than 3 letters.");
     } else {
       signUpDetails.fname = firstName.value;
     }
   };
 
-  firstName.onfocus = function () {
-    if (firstName.classList.contains("error-input")) {
-      firstName.classList.remove("error-input");
-      deleteErrorMessage(firstName);
-    }
-  };
-
   lastName.onblur = function () {
-    if (!onlyLetters(lastName.value) || lastName.value.length <= 3) {
-      lastName.classList.add("error-input");
+    if (!onlyLetters(lastName.value)) {
       signUpDetails.lname = "Invalid last name";
-      createErrorMessage(lastName, "Invalid last name");
+      createErrorMessage(lastName, "Last name must have only letters.");
+    } else if (lastName.value.length <= 3) {
+      signUpDetails.lname = "Invalid last name";
+      createErrorMessage(lastName, "Last name must have more than 3 letters.");
     } else {
       signUpDetails.lname = lastName.value;
     }
   };
 
-  lastName.onfocus = function () {
-    if (lastName.classList.contains("error-input")) {
-      lastName.classList.remove("error-input");
-      deleteErrorMessage(lastName);
-    }
-  };
-
   dni.onblur = function () {
-    if (!onlyNumbers(dni.value) || dni.value.length < 7) {
-      dni.classList.add("error-input");
+    if (!onlyNumbers(dni.value)) {
       signUpDetails.dni = "Invalid DNI";
-      createErrorMessage(dni, "Invalid DNI");
+      createErrorMessage(dni, "DNI can only contain numbers.");
+    } else if (dni.value.length < 7) {
+      signUpDetails.dni = "Invalid DNI";
+      createErrorMessage(dni, "DNI must have more than 7 characters.");
     } else {
       signUpDetails.dni = dni.value;
     }
   };
 
-  dni.onfocus = function () {
-    if (dni.classList.contains("error-input")) {
-      dni.classList.remove("error-input");
-      deleteErrorMessage(dni);
-    }
-  };
-
   emailInput.onblur = function () {
     if (!emailExpression.test(emailInput.value)) {
-      emailInput.classList.add("error-input");
       signUpDetails.email = "Invalid email";
-      createErrorMessage(emailInput, "Invalid email");
+      createErrorMessage(emailInput, "Email is not valid.");
     } else {
       signUpDetails.email = emailInput.value;
     }
   };
 
-  emailInput.onfocus = function () {
-    if (emailInput.classList.contains("error-input")) {
-      emailInput.classList.remove("error-input");
-      deleteErrorMessage(emailInput);
-    }
-  };
-
   postalCode.onblur = function () {
-    if (
-      !onlyNumbers(postalCode.value) ||
-      postalCode.value.length > 5 ||
-      postalCode.value.length < 4
-    ) {
-      postalCode.classList.add("error-input");
+    if (!onlyNumbers(postalCode.value)) {
       signUpDetails.postalcode = "Invalid Postal Code";
-      createErrorMessage(postalCode, "Invalid Postal Code");
+      createErrorMessage(postalCode, "Postal Code can only contain numbers");
+    } else if (postalCode.value.length > 5 || postalCode.value.length < 4) {
+      signUpDetails.postalcode = "Invalid Postal Code";
+      createErrorMessage(
+        postalCode,
+        "Postal Code must have between 4 and 5 characters"
+      );
     } else {
       signUpDetails.postalcode = postalCode.value;
     }
   };
 
-  postalCode.onfocus = function () {
-    if (postalCode.classList.contains("error-input")) {
-      postalCode.classList.remove("error-input");
-      deleteErrorMessage(postalCode);
-    }
-  };
-
   passwordInput.onblur = function () {
     if (
-      hasSpecialCharacters(passwordInput.value) ||
-      passwordInput.value.length < 8
+      !hasLettersAndNumbers(passwordInput.value) ||
+      hasSpecialCharacters(passwordInput.value)
     ) {
-      passwordInput.classList.add("error-input");
       signUpDetails.password = "Invalid Password";
-      createErrorMessage(passwordInput, "Invalid Password");
+      createErrorMessage(
+        passwordInput,
+        "Password can only have numbers and letters"
+      );
+    } else if (passwordInput.value.length < 8) {
+      signUpDetails.password = "Invalid Password";
+      createErrorMessage(
+        passwordInput,
+        "Password must contain more than 8 characters"
+      );
     } else {
       signUpDetails.password = passwordInput.value;
     }
   };
 
-  passwordInput.onfocus = function () {
-    if (passwordInput.classList.contains("error-input")) {
-      passwordInput.classList.remove("error-input");
-      deleteErrorMessage(passwordInput);
-    }
-  };
-
   repeatPasswordInput.onblur = function () {
     if (
-      hasSpecialCharacters(repeatPasswordInput.value) ||
-      repeatPasswordInput.value.length < 8
+      !hasLettersAndNumbers(repeatPasswordInput.value) ||
+      hasSpecialCharacters(passwordInput.value)
     ) {
-      repeatPasswordInput.classList.add("error-input");
-      signUpDetails.password2 = "Invalid Confirmation of Password";
-      createErrorMessage(repeatPasswordInput, "Invalid Password");
+      signUpDetails.password2 = "Invalid confirmation of Password";
+      createErrorMessage(
+        repeatPasswordInput,
+        "Password can only have numbers and letters"
+      );
+    } else if (repeatPasswordInput.value.length < 8) {
+      signUpDetails.password2 = "Invalid confirmation of Password";
+      createErrorMessage(
+        repeatPasswordInput,
+        "Password must contain more than 8 characters"
+      );
+    } else if (repeatPasswordInput.value != passwordInput.value) {
+      signUpDetails.password2 = "Invalid confirmation of Password";
+      createErrorMessage(repeatPasswordInput, "Passwords must be the same");
     } else {
       signUpDetails.password2 = repeatPasswordInput.value;
     }
   };
 
-  repeatPasswordInput.onfocus = function () {
-    if (repeatPasswordInput.classList.contains("error-input")) {
-      repeatPasswordInput.classList.remove("error-input");
-      deleteErrorMessage(repeatPasswordInput);
-    }
-  };
-
   phoneInput.onblur = function () {
-    if (!onlyNumbers(phoneInput.value) || phoneInput.value.length != 10) {
-      phoneInput.classList.add("error-input");
+    if (!onlyNumbers(phoneInput.value)) {
       signUpDetails.phone = "Invalid phone number";
-      createErrorMessage(phoneInput, "Invalid phone");
+      createErrorMessage(phoneInput, "Phone number can only contain numbers");
+    } else if (phoneInput.value.length != 10) {
+      signUpDetails.phone = "Invalid phone number";
+      createErrorMessage(phoneInput, "Phone number must have 10 digits");
     } else {
       signUpDetails.phone = phoneInput.value;
-    }
-  };
-
-  phoneInput.onfocus = function () {
-    if (phoneInput.classList.contains("error-input")) {
-      phoneInput.classList.remove("error-input");
-      deleteErrorMessage(phoneInput);
     }
   };
 
@@ -189,50 +161,66 @@ window.onload = function () {
       !hasLettersAndNumbers(adressInput.value) ||
       !isAlphanumericText(adressInput.value) ||
       adressInput.value.trim() != adressInput.value ||
-      adressInput.value.indexOf(" ") == -1 ||
-      adressInput.value.length < 5
+      adressInput.value.indexOf(" ") == -1
     ) {
-      adressInput.classList.add("error-input");
       signUpDetails.adress = "Invalid adress";
-      createErrorMessage(adressInput, "Invalid adress");
+      createErrorMessage(
+        adressInput,
+        "Address must have letters, numbers and an space in the middle"
+      );
+    } else if (adressInput.value.length < 5) {
+      signUpDetails.adress = "Invalid adress";
+      createErrorMessage(
+        adressInput,
+        "Address must have at least 5 characters"
+      );
     } else {
       signUpDetails.adress = adressInput.value;
     }
   };
 
-  adressInput.onfocus = function () {
-    if (adressInput.classList.contains("error-input")) {
-      adressInput.classList.remove("error-input");
-      deleteErrorMessage(adressInput);
-    }
-  };
-
   cityInput.onblur = function () {
-    if (
-      !isAlphanumericText(cityInput.value) ||
-      letterCount(cityInput.value) < 3
-    ) {
-      cityInput.classList.add("error-input");
+    if (!isAlphanumericText(cityInput.value)) {
       signUpDetails.city = "Invalid city name";
-      createErrorMessage(cityInput, "Invalid city name");
+      createErrorMessage(cityInput, "City name must be an alphanumeric text");
+    } else if (letterCount(cityInput.value) < 3) {
+      signUpDetails.city = "Invalid city name";
+      createErrorMessage(
+        cityInput,
+        "City name must have at least 3 characters"
+      );
     } else {
       signUpDetails.city = cityInput.value;
     }
   };
 
-  cityInput.onfocus = function () {
-    if (cityInput.classList.contains("error-input")) {
-      cityInput.classList.remove("error-input");
-      deleteErrorMessage(cityInput);
-    }
-  };
+  Array.from(formInputs).forEach(function (elem) {
+    elem.onfocus = function () {
+      if (elem.classList.contains("error-input")) {
+        deleteErrorMessage(elem);
+      }
+    };
+  });
 
   birthDate.onblur = function () {
-    signUpDetails.birthdate = birthDate.value;
+    if (birthDate.value === "") {
+      createErrorMessage(birthDate, "You must insert a valid birth date");
+    } else {
+      signUpDetails.birthdate = birthDate.value;
+    }
   };
 
   createButton.onclick = function (e) {
     e.preventDefault();
-    alert(Object.values(signUpDetails));
+    if (
+      Object.values(signUpDetails).some(function (elem) {
+        return elem.includes("Required") || elem.includes("Invalid");
+      })
+    ) {
+      console.log("Error");
+    } else {
+      console.log("Success");
+      // TODO: Finish this
+    }
   };
 };

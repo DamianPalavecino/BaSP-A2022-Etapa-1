@@ -24,7 +24,6 @@ window.onload = function () {
       !onlyLetters(contactNameInput.value) ||
       contactNameInput.value.length <= 3
     ) {
-      contactNameInput.classList.add("error-input");
       contactDetails.cname = "Invalid Name";
       createErrorMessage(contactNameInput, "Invalid Name");
     } else {
@@ -34,14 +33,12 @@ window.onload = function () {
 
   contactNameInput.onfocus = function () {
     if (contactNameInput.classList.contains("error-input")) {
-      contactNameInput.classList.remove("error-input");
       deleteErrorMessage(contactNameInput);
     }
   };
 
   contactEmailInput.onblur = function () {
     if (!emailExpression.test(contactEmailInput.value)) {
-      contactEmailInput.classList.add("error-input");
       contactDetails.email = "Invalid email";
       createErrorMessage(contactEmailInput, "Invalid email");
     } else {
@@ -51,14 +48,12 @@ window.onload = function () {
 
   contactEmailInput.onfocus = function () {
     if (contactEmailInput.classList.contains("error-input")) {
-      contactEmailInput.classList.remove("error-input");
       deleteErrorMessage(contactEmailInput);
     }
   };
 
   messageArea.onblur = function () {
     if (messageArea.value.length < 3) {
-      messageArea.classList.add("error-input");
       contactDetails.msg = "Invalid Message";
       createErrorMessage(messageArea, "Invalid Message");
     } else {
@@ -68,7 +63,6 @@ window.onload = function () {
 
   messageArea.onfocus = function () {
     if (messageArea.classList.contains("error-input")) {
-      messageArea.classList.remove("error-input");
       deleteErrorMessage(messageArea);
     }
   };
