@@ -9,10 +9,7 @@ export function createErrorMessage(input, message) {
 }
 
 export function deleteErrorMessage(input) {
-  if (
-    input.nextElementSibling.tagName == "P" &&
-    input.classList.contains("error-input")
-  ) {
+  if (input.nextElementSibling.tagName == "P") {
     input.classList.remove("error-input");
     input.nextElementSibling.remove();
   }
@@ -73,6 +70,16 @@ export function letterCount(str) {
   return count;
 }
 
+export function spaceCount(str) {
+  var count = 0;
+  for (var i = 0; i < str.length; i++) {
+    if (str[i] === " ") {
+      count += 1;
+    }
+  }
+  return count;
+}
+
 export function isAlphanumericText(str) {
   var isAlphanumeric = true;
   for (var i = 0; i < str.length; i++) {
@@ -96,4 +103,23 @@ export function hasLettersAndNumbers(str) {
     }
   }
   return hasNumber && hasLetter;
+}
+
+export function getQueryParams(credentials) {
+  var queryParams = "?";
+  Object.keys(credentials).forEach(function (key) {
+    if (queryParams.slice(-1) === "?") {
+      queryParams += key + "=" + credentials[key];
+    } else {
+      queryParams += "&" + key + "=" + credentials[key];
+    }
+  });
+  return queryParams;
+}
+
+export function saveDataToLocalStorage(credentials) {
+  Object.keys(credentials).forEach(function (key) {
+    localStorage.setItem(key, credentials[key]);
+  });
+  localStorage.setItem("registered", true);
 }

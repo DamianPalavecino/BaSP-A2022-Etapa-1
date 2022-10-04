@@ -25,14 +25,15 @@ form {
   gap: 10px;
 }
 
-form div {
-  display: inline-block;
-}
-
 form span,
 form a {
   align-self: center;
   font-size: 14px;
+  font-weight: 600;
+}
+
+form a {
+  padding-top: 20px;
 }
 
 #login-container {
