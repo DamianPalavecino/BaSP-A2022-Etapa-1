@@ -7,59 +7,63 @@ import {
   isAlphanumericText,
   hasLettersAndNumbers,
   letterCount,
+  spaceCount,
+  getQueryParams,
+  saveDataToLocalStorage,
 } from "./common.js";
 
 window.onload = function () {
-  var firstName = document.getElementById("fname");
-  var lastName = document.getElementById("lname");
+  var firstName = document.getElementById("name");
+  var lastName = document.getElementById("lastName");
   var dni = document.getElementById("dni");
-  var birthDate = document.getElementById("birthdate");
+  var birthDate = document.getElementById("dob");
   var emailInput = document.getElementById("email");
   var emailExpression = /^[^@]+@[^@]+\.[a-zA-Z]{2,}$/;
-  var postalCode = document.getElementById("postal-code");
-  var passwordInput = document.getElementById("password1");
+  var postalCode = document.getElementById("zip");
+  var passwordInput = document.getElementById("password");
   var repeatPasswordInput = document.getElementById("password2");
   var phoneInput = document.getElementById("phone");
-  var adressInput = document.getElementById("adress");
+  var addressInput = document.getElementById("address");
   var cityInput = document.getElementById("city");
   var createButton = document.getElementById("create-btn");
   var formInputs = document.querySelectorAll("form input");
 
   var signUpDetails = {
-    fname: "Required",
-    lname: "Required",
+    name: "Required",
+    lastName: "Required",
     dni: "Required",
-    birthdate: "Required",
+    dob: "Required",
     email: "Required",
-    adress: "Required",
+    address: "Required",
     city: "Required",
-    postalcode: "Required",
+    zip: "Required",
     password: "Required",
     password2: "Required",
     phone: "Required",
+    // TODO: What to do with "password2"? It doesnt matter if you add extra parameters
   };
 
   firstName.onblur = function () {
     if (!onlyLetters(firstName.value)) {
-      signUpDetails.fname = "Invalid first name";
+      signUpDetails.name = "Invalid first name";
       createErrorMessage(firstName, "Name must have only letters.");
     } else if (firstName.value.length <= 3) {
-      signUpDetails.fname = "Invalid first name";
+      signUpDetails.name = "Invalid first name";
       createErrorMessage(firstName, "Name must have more than 3 letters.");
     } else {
-      signUpDetails.fname = firstName.value;
+      signUpDetails.name = firstName.value;
     }
   };
 
   lastName.onblur = function () {
     if (!onlyLetters(lastName.value)) {
-      signUpDetails.lname = "Invalid last name";
+      signUpDetails.lastName = "Invalid last name";
       createErrorMessage(lastName, "Last name must have only letters.");
     } else if (lastName.value.length <= 3) {
-      signUpDetails.lname = "Invalid last name";
+      signUpDetails.lastName = "Invalid last name";
       createErrorMessage(lastName, "Last name must have more than 3 letters.");
     } else {
-      signUpDetails.lname = lastName.value;
+      signUpDetails.lastName = lastName.value;
     }
   };
 
@@ -76,7 +80,10 @@ window.onload = function () {
   };
 
   emailInput.onblur = function () {
-    if (!emailExpression.test(emailInput.value)) {
+    if (
+      !emailExpression.test(emailInput.value) ||
+      emailInput.value.trim() != emailInput.value
+    ) {
       signUpDetails.email = "Invalid email";
       createErrorMessage(emailInput, "Email is not valid.");
     } else {
@@ -86,16 +93,16 @@ window.onload = function () {
 
   postalCode.onblur = function () {
     if (!onlyNumbers(postalCode.value)) {
-      signUpDetails.postalcode = "Invalid Postal Code";
+      signUpDetails.zip = "Invalid Postal Code";
       createErrorMessage(postalCode, "Postal Code can only contain numbers");
     } else if (postalCode.value.length > 5 || postalCode.value.length < 4) {
-      signUpDetails.postalcode = "Invalid Postal Code";
+      signUpDetails.zip = "Invalid Postal Code";
       createErrorMessage(
         postalCode,
         "Postal Code must have between 4 and 5 characters"
       );
     } else {
-      signUpDetails.postalcode = postalCode.value;
+      signUpDetails.zip = postalCode.value;
     }
   };
 
@@ -156,31 +163,40 @@ window.onload = function () {
     }
   };
 
-  adressInput.onblur = function () {
+  addressInput.onblur = function () {
     if (
-      !hasLettersAndNumbers(adressInput.value) ||
-      !isAlphanumericText(adressInput.value) ||
-      adressInput.value.trim() != adressInput.value ||
-      adressInput.value.indexOf(" ") == -1
+      !hasLettersAndNumbers(addressInput.value) ||
+      !isAlphanumericText(addressInput.value) ||
+      addressInput.value.trim() != addressInput.value ||
+      addressInput.value.indexOf(" ") == -1
     ) {
-      signUpDetails.adress = "Invalid adress";
+      signUpDetails.address = "Invalid address";
       createErrorMessage(
-        adressInput,
+        addressInput,
         "Address must have letters, numbers and an space in the middle"
       );
-    } else if (adressInput.value.length < 5) {
-      signUpDetails.adress = "Invalid adress";
+    } else if (addressInput.value.length < 5) {
+      signUpDetails.address = "Invalid address";
       createErrorMessage(
-        adressInput,
+        addressInput,
         "Address must have at least 5 characters"
       );
+    } else if (spaceCount(addressInput.value) > 1) {
+      signUpDetails.address = "Invalid address";
+      createErrorMessage(
+        addressInput,
+        "Address can only have one space in the middle"
+      );
     } else {
-      signUpDetails.adress = adressInput.value;
+      signUpDetails.address = addressInput.value;
     }
   };
 
   cityInput.onblur = function () {
-    if (!isAlphanumericText(cityInput.value)) {
+    if (
+      !isAlphanumericText(cityInput.value) ||
+      cityInput.value.trim() != cityInput.value
+    ) {
       signUpDetails.city = "Invalid city name";
       createErrorMessage(cityInput, "City name must be an alphanumeric text");
     } else if (letterCount(cityInput.value) < 3) {
@@ -194,6 +210,38 @@ window.onload = function () {
     }
   };
 
+  function fixDateFormat(date) {
+    var dateArray = [];
+    var temporaryVar = "";
+    var newDate = "";
+    if (date.includes("-")) {
+      dateArray = date.split("-");
+      dateArray.reverse();
+      temporaryVar = dateArray[0];
+      dateArray[0] = dateArray[1];
+      dateArray[1] = temporaryVar;
+      newDate = dateArray.join("/");
+    } else if (date.includes("/")) {
+      dateArray = date.split("/");
+      temporaryVar = dateArray[1];
+      dateArray[1] = dateArray[0];
+      dateArray[0] = temporaryVar;
+      dateArray.reverse();
+      newDate = dateArray.join("-");
+    }
+
+    return newDate;
+  }
+
+  birthDate.onblur = function () {
+    if (birthDate.value === "") {
+      createErrorMessage(birthDate, "You must insert a valid birth date");
+    } else {
+      signUpDetails.dob = fixDateFormat(birthDate.value);
+    }
+  };
+
+  // Set an on focus event to every input element to delete an error message if it exists
   Array.from(formInputs).forEach(function (elem) {
     elem.onfocus = function () {
       if (elem.classList.contains("error-input")) {
@@ -202,25 +250,57 @@ window.onload = function () {
     };
   });
 
-  birthDate.onblur = function () {
-    if (birthDate.value === "") {
-      createErrorMessage(birthDate, "You must insert a valid birth date");
-    } else {
-      signUpDetails.birthdate = birthDate.value;
-    }
-  };
-
   createButton.onclick = function (e) {
     e.preventDefault();
+    console.log(getQueryParams(signUpDetails));
     if (
       Object.values(signUpDetails).some(function (elem) {
         return elem.includes("Required") || elem.includes("Invalid");
       })
     ) {
-      console.log("Error");
+      alert(
+        "Some fields are incomplete or invalid. Please modify them and try again."
+      );
     } else {
-      console.log("Success");
-      // TODO: Finish this
+      fetch(
+        "https://basp-m2022-api-rest-server.herokuapp.com/signup" +
+          getQueryParams(signUpDetails)
+      )
+        .then(function (response) {
+          return response.json();
+        })
+        .then(function (jsonResponse) {
+          if (jsonResponse.success) {
+            saveDataToLocalStorage(jsonResponse.data);
+            alert("The request has been done succesfully: " + jsonResponse.msg);
+          } else {
+            throw jsonResponse;
+          }
+        })
+        .catch(function (err) {
+          if (err.hasOwnProperty("errors")) {
+            err.errors.forEach(function (error) {
+              alert("Error: " + error.msg);
+            });
+          } else {
+            alert("Error: " + err.msg);
+          }
+        });
     }
   };
+
+  // If there is data stored in the Local Storage, use a forEach loop
+  // to set the default values of inputs using the data from the local storage.
+  // Also, asign the values to each key in the signUpDetails object.
+  if (localStorage.registered) {
+    Array.from(formInputs).forEach(function (elem) {
+      if (elem.id === "dob") {
+        elem.defaultValue = fixDateFormat(localStorage.getItem(elem.id));
+        signUpDetails[elem.id] = localStorage.getItem(elem.id);
+      } else {
+        elem.defaultValue = localStorage.getItem(elem.id);
+        signUpDetails[elem.id] = localStorage.getItem(elem.id);
+      }
+    });
+  }
 };
