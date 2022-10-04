@@ -44,6 +44,10 @@ form div {
   gap: 10px;
 }
 
+#redirection-container a {
+  text-align: center;
+}
+
 input[type="text"],
 input[type="password"],
 input[type="date"] {

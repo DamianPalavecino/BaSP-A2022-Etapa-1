@@ -82,11 +82,11 @@
         <form>
           <div>
             <label>Name</label>
-            <input id="fname" type="text" />
+            <input id="name" type="text" />
           </div>
           <div>
             <label>Last Name</label>
-            <input id="lname" type="text" />
+            <input id="lastName" type="text" />
           </div>
           <div>
             <label>DNI</label>
@@ -94,7 +94,7 @@
           </div>
           <div>
             <label for="birthday">Birth date</label>
-            <input type="date" id="birthdate" name="birthdate" />
+            <input type="date" id="dob" name="birthdate" />
           </div>
           <div>
             <label>Email</label>
@@ -102,7 +102,7 @@
           </div>
           <div>
             <label>Adress</label>
-            <input id="adress" type="text" />
+            <input id="address" type="text" />
           </div>
           <div>
             <label>Localidad</label>
@@ -110,11 +110,11 @@
           </div>
           <div>
             <label>Postal Code</label>
-            <input id="postal-code" type="text" />
+            <input id="zip" type="text" />
           </div>
           <div>
             <label>Password</label>
-            <input id="password1" type="password" />
+            <input id="password" type="password" />
           </div>
           <div>
             <label>Repeat Password</label>
@@ -124,14 +124,19 @@
             <label>Phone Number</label>
             <input id="phone" type="text" />
           </div>
-          <span>
-            <a href="index.html">
-              <button id="back-btn" class="form-btn" type="button">Back</button>
-            </a>
-            <button id="create-btn" class="form-btn" type="button">
-              Create
-            </button>
-          </span>
+          <div id="redirection-container">
+            <a href="sign-in.html">Already have an account?</a>
+            <span>
+              <a href="index.html">
+                <button id="back-btn" class="form-btn" type="button">
+                  Back
+                </button>
+              </a>
+              <button id="create-btn" class="form-btn" type="button">
+                Create
+              </button>
+            </span>
+          </div>
         </form>
       </main>
     </div>
