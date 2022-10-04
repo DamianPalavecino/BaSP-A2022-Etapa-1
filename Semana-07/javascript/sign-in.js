@@ -4,6 +4,7 @@ import {
   createErrorMessage,
   deleteErrorMessage,
   getQueryParams,
+  hasInvalidInputValue,
 } from "./common.js";
 
 window.onload = function () {
@@ -11,16 +12,16 @@ window.onload = function () {
   var passwordInput = document.getElementById("password");
   var emailExpression = /^[^@]+@[^@]+\.[a-zA-Z]{2,}$/;
   var loginButton = document.getElementById("login-btn");
+  var formInputs = document.querySelectorAll("form input");
 
   var signInDetails = {
-    email: "Required",
-    password: "Required",
+    email: "",
+    password: "",
   };
 
   emailInput.onblur = function () {
     if (!emailExpression.test(emailInput.value)) {
       createErrorMessage(emailInput, "Email is not valid.");
-      signInDetails.email = "Invalid email";
     } else {
       signInDetails.email = emailInput.value;
     }
@@ -41,13 +42,11 @@ window.onload = function () {
         passwordInput,
         "The password can only contain numbers and letters."
       );
-      signInDetails.password = "Invalid password";
     } else if (passwordInput.value.length < 7) {
       createErrorMessage(
         passwordInput,
         "Password must have more than 7 letters."
       );
-      signInDetails.password = "Invalid password";
     } else {
       signInDetails.password = passwordInput.value;
     }
@@ -61,18 +60,9 @@ window.onload = function () {
 
   loginButton.onclick = function (e) {
     e.preventDefault();
-    if (
-      Object.values(signInDetails).some(function (elem) {
-        return elem.includes("Required") || elem.includes("Invalid");
-      })
-    ) {
+    if (hasInvalidInputValue(formInputs)) {
       alert(
-        `Error:
-      Email: ` +
-          signInDetails.email +
-          `
-      Password: ` +
-          signInDetails.password
+        "Error: One or more fields are empty or invalid. Please modify them and try again."
       );
     } else {
       fetch(
@@ -89,8 +79,16 @@ window.onload = function () {
             throw jsonResponse;
           }
         })
-        .catch(function (error) {
-          alert("The request has failed: " + error.msg);
+        .catch(function (err) {
+          if (err.msg) {
+            alert("The request failed: " + err.msg);
+          } else {
+            var errors = "";
+            for (let i = 0; i < err.errors.length; i++) {
+              errors += "\n" + err.errors[i].msg;
+            }
+            alert("The request has failed: " + errors);
+          }
         });
     }
   };

@@ -10,6 +10,7 @@ import {
   spaceCount,
   getQueryParams,
   saveDataToLocalStorage,
+  hasInvalidInputValue,
 } from "./common.js";
 
 window.onload = function () {
@@ -29,26 +30,22 @@ window.onload = function () {
   var formInputs = document.querySelectorAll("form input");
 
   var signUpDetails = {
-    name: "Required",
-    lastName: "Required",
-    dni: "Required",
-    dob: "Required",
-    email: "Required",
-    address: "Required",
-    city: "Required",
-    zip: "Required",
-    password: "Required",
-    password2: "Required",
-    phone: "Required",
-    // TODO: What to do with "password2"? It doesnt matter if you add extra parameters
+    name: "",
+    lastName: "",
+    dni: "",
+    dob: "",
+    email: "",
+    address: "",
+    city: "",
+    zip: "",
+    password: "",
+    phone: "",
   };
 
   firstName.onblur = function () {
     if (!onlyLetters(firstName.value)) {
-      signUpDetails.name = "Invalid first name";
       createErrorMessage(firstName, "Name must have only letters.");
     } else if (firstName.value.length <= 3) {
-      signUpDetails.name = "Invalid first name";
       createErrorMessage(firstName, "Name must have more than 3 letters.");
     } else {
       signUpDetails.name = firstName.value;
@@ -57,10 +54,8 @@ window.onload = function () {
 
   lastName.onblur = function () {
     if (!onlyLetters(lastName.value)) {
-      signUpDetails.lastName = "Invalid last name";
       createErrorMessage(lastName, "Last name must have only letters.");
     } else if (lastName.value.length <= 3) {
-      signUpDetails.lastName = "Invalid last name";
       createErrorMessage(lastName, "Last name must have more than 3 letters.");
     } else {
       signUpDetails.lastName = lastName.value;
@@ -69,10 +64,8 @@ window.onload = function () {
 
   dni.onblur = function () {
     if (!onlyNumbers(dni.value)) {
-      signUpDetails.dni = "Invalid DNI";
       createErrorMessage(dni, "DNI can only contain numbers.");
     } else if (dni.value.length < 7) {
-      signUpDetails.dni = "Invalid DNI";
       createErrorMessage(dni, "DNI must have more than 7 characters.");
     } else {
       signUpDetails.dni = dni.value;
@@ -84,7 +77,6 @@ window.onload = function () {
       !emailExpression.test(emailInput.value) ||
       emailInput.value.trim() != emailInput.value
     ) {
-      signUpDetails.email = "Invalid email";
       createErrorMessage(emailInput, "Email is not valid.");
     } else {
       signUpDetails.email = emailInput.value;
@@ -93,10 +85,8 @@ window.onload = function () {
 
   postalCode.onblur = function () {
     if (!onlyNumbers(postalCode.value)) {
-      signUpDetails.zip = "Invalid Postal Code";
       createErrorMessage(postalCode, "Postal Code can only contain numbers");
     } else if (postalCode.value.length > 5 || postalCode.value.length < 4) {
-      signUpDetails.zip = "Invalid Postal Code";
       createErrorMessage(
         postalCode,
         "Postal Code must have between 4 and 5 characters"
@@ -111,13 +101,11 @@ window.onload = function () {
       !hasLettersAndNumbers(passwordInput.value) ||
       hasSpecialCharacters(passwordInput.value)
     ) {
-      signUpDetails.password = "Invalid Password";
       createErrorMessage(
         passwordInput,
         "Password can only have numbers and letters"
       );
     } else if (passwordInput.value.length < 8) {
-      signUpDetails.password = "Invalid Password";
       createErrorMessage(
         passwordInput,
         "Password must contain more than 8 characters"
@@ -132,28 +120,22 @@ window.onload = function () {
       !hasLettersAndNumbers(repeatPasswordInput.value) ||
       hasSpecialCharacters(passwordInput.value)
     ) {
-      signUpDetails.password2 = "Invalid confirmation of Password";
       createErrorMessage(
         repeatPasswordInput,
         "Password can only have numbers and letters"
       );
     } else if (repeatPasswordInput.value.length < 8) {
-      signUpDetails.password2 = "Invalid confirmation of Password";
       createErrorMessage(
         repeatPasswordInput,
         "Password must contain more than 8 characters"
       );
     } else if (repeatPasswordInput.value != passwordInput.value) {
-      signUpDetails.password2 = "Invalid confirmation of Password";
       createErrorMessage(repeatPasswordInput, "Passwords must be the same");
-    } else {
-      signUpDetails.password2 = repeatPasswordInput.value;
     }
   };
 
   phoneInput.onblur = function () {
     if (!onlyNumbers(phoneInput.value)) {
-      signUpDetails.phone = "Invalid phone number";
       createErrorMessage(phoneInput, "Phone number can only contain numbers");
     } else if (phoneInput.value.length != 10) {
       signUpDetails.phone = "Invalid phone number";
@@ -170,19 +152,16 @@ window.onload = function () {
       addressInput.value.trim() != addressInput.value ||
       addressInput.value.indexOf(" ") == -1
     ) {
-      signUpDetails.address = "Invalid address";
       createErrorMessage(
         addressInput,
         "Address must have letters, numbers and an space in the middle"
       );
     } else if (addressInput.value.length < 5) {
-      signUpDetails.address = "Invalid address";
       createErrorMessage(
         addressInput,
         "Address must have at least 5 characters"
       );
     } else if (spaceCount(addressInput.value) > 1) {
-      signUpDetails.address = "Invalid address";
       createErrorMessage(
         addressInput,
         "Address can only have one space in the middle"
@@ -197,10 +176,8 @@ window.onload = function () {
       !isAlphanumericText(cityInput.value) ||
       cityInput.value.trim() != cityInput.value
     ) {
-      signUpDetails.city = "Invalid city name";
       createErrorMessage(cityInput, "City name must be an alphanumeric text");
     } else if (letterCount(cityInput.value) < 3) {
-      signUpDetails.city = "Invalid city name";
       createErrorMessage(
         cityInput,
         "City name must have at least 3 characters"
@@ -220,6 +197,7 @@ window.onload = function () {
       temporaryVar = dateArray[0];
       dateArray[0] = dateArray[1];
       dateArray[1] = temporaryVar;
+      // Date formatted to MM/DD/YYYY
       newDate = dateArray.join("/");
     } else if (date.includes("/")) {
       dateArray = date.split("/");
@@ -227,6 +205,7 @@ window.onload = function () {
       dateArray[1] = dateArray[0];
       dateArray[0] = temporaryVar;
       dateArray.reverse();
+      // Date formatted to YYYY-MM-DD
       newDate = dateArray.join("-");
     }
 
@@ -252,12 +231,7 @@ window.onload = function () {
 
   createButton.onclick = function (e) {
     e.preventDefault();
-    console.log(getQueryParams(signUpDetails));
-    if (
-      Object.values(signUpDetails).some(function (elem) {
-        return elem.includes("Required") || elem.includes("Invalid");
-      })
-    ) {
+    if (hasInvalidInputValue(formInputs)) {
       alert(
         "Some fields are incomplete or invalid. Please modify them and try again."
       );
@@ -278,12 +252,14 @@ window.onload = function () {
           }
         })
         .catch(function (err) {
-          if (err.hasOwnProperty("errors")) {
-            err.errors.forEach(function (error) {
-              alert("Error: " + error.msg);
-            });
+          if (err.msg) {
+            alert("The request has failed: " + err.msg);
           } else {
-            alert("Error: " + err.msg);
+            var errors = "";
+            for (let i = 0; i < err.errors.length; i++) {
+              errors += "\n" + err.errors[i].msg;
+            }
+            alert("The request has failed: " + errors);
           }
         });
     }
@@ -297,6 +273,8 @@ window.onload = function () {
       if (elem.id === "dob") {
         elem.defaultValue = fixDateFormat(localStorage.getItem(elem.id));
         signUpDetails[elem.id] = localStorage.getItem(elem.id);
+      } else if (elem.id === "password2") {
+        elem.defaultValue = localStorage.getItem("password");
       } else {
         elem.defaultValue = localStorage.getItem(elem.id);
         signUpDetails[elem.id] = localStorage.getItem(elem.id);

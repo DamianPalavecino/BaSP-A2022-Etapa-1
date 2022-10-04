@@ -123,3 +123,9 @@ export function saveDataToLocalStorage(credentials) {
   });
   localStorage.setItem("registered", true);
 }
+
+export function hasInvalidInputValue(inputs) {
+  return Array.from(inputs).some(function (input) {
+    return input.value.length === 0 || input.classList.contains("error-input");
+  });
+}
