@@ -105,6 +105,9 @@ a {
     display: initial;
   }
 
+  #a-container {
+    display: none;
+  }
   /* About Us */
 
   #about-us div {
