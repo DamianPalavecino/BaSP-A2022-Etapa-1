@@ -13,6 +13,45 @@ window.onload = function () {
   var emailExpression = /^[^@]+@[^@]+\.[a-zA-Z]{2,}$/;
   var loginButton = document.getElementById("login-btn");
   var formInputs = document.querySelectorAll("form input");
+  var modal = document.getElementById("myModal");
+  var closeBtn = document.getElementsByClassName("close")[0];
+  var modalContent = document.getElementsByClassName("modal-content")[0];
+  var modalTitle = document.getElementById("modal-title");
+
+  closeBtn.onclick = function () {
+    modal.style.display = "none";
+    document.querySelectorAll(".modal-msg").forEach(function (element) {
+      element.remove();
+    });
+  };
+
+  window.onclick = function (event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+      document.querySelectorAll(".modal-msg").forEach(function (element) {
+        element.remove();
+      });
+    }
+  };
+
+  function displayModal(title, value) {
+    var message = document.createElement("p");
+    modal.style.display = "block";
+    modalTitle.textContent = title;
+    if (typeof value === "string") {
+      var uniqueMessage = document.createElement("p");
+      uniqueMessage.classList.add("modal-msg");
+      uniqueMessage.textContent = value;
+      modalContent.appendChild(uniqueMessage);
+    } else {
+      for (var i = 0; i < value.length; i++) {
+        var message = document.createElement("p");
+        message.classList.add("modal-msg");
+        message.textContent = value[i].msg;
+        modalContent.appendChild(message);
+      }
+    }
+  }
 
   var signInDetails = {
     email: "",
@@ -61,8 +100,9 @@ window.onload = function () {
   loginButton.onclick = function (e) {
     e.preventDefault();
     if (hasInvalidInputValue(formInputs)) {
-      alert(
-        "Error: One or more fields are empty or invalid. Please modify them and try again."
+      displayModal(
+        "Error",
+        "One or more fields are empty or invalid. Please modify them and try again."
       );
     } else {
       fetch(
@@ -74,20 +114,16 @@ window.onload = function () {
         })
         .then(function (jsonResponse) {
           if (jsonResponse.success) {
-            alert("The request has been done succesfully: " + jsonResponse.msg);
+            displayModal("Success", jsonResponse.msg);
           } else {
             throw jsonResponse;
           }
         })
         .catch(function (err) {
           if (err.msg) {
-            alert("The request failed: " + err.msg);
+            displayModal("Error", err.msg);
           } else {
-            var errors = "";
-            for (let i = 0; i < err.errors.length; i++) {
-              errors += "\n" + err.errors[i].msg;
-            }
-            alert("The request has failed: " + errors);
+            displayModal("Error", err.errors);
           }
         });
     }
