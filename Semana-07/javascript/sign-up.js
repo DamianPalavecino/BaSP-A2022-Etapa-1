@@ -254,6 +254,8 @@ window.onload = function () {
   birthDate.onblur = function () {
     if (birthDate.value === "") {
       createErrorMessage(birthDate, "You must insert a valid birth date");
+    } else if (birthDate.value.split("-")[0] > 2022) {
+      createErrorMessage(birthDate, "Date of birth must be before today");
     } else {
       signUpDetails.dob = fixDateFormat(birthDate.value);
     }
@@ -296,7 +298,6 @@ window.onload = function () {
             displayModal("Error", err.msg);
           } else {
             displayModal("Error", err.errors);
-            // alert("The request has failed: " + err.errors);
           }
         });
     }
